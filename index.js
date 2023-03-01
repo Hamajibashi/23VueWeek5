@@ -43,6 +43,7 @@ const productModal = {
     methods: {
         hide() {
             this.modal.hide();
+            this.qty = 1;
         }
     },
     mounted() {
