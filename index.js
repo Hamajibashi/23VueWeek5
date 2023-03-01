@@ -96,7 +96,7 @@ const app = Vue.createApp({
                     this.products = res.data.products;
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
         },
         // 打開 modal
@@ -111,7 +111,7 @@ const app = Vue.createApp({
                     this.cart = res.data.data;
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
 
         },
@@ -131,7 +131,7 @@ const app = Vue.createApp({
                     this.loadingItem = '';
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
         },
         // 扁更產品數量
@@ -149,7 +149,7 @@ const app = Vue.createApp({
                     this.loadingItem = '';
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
         },
         // 刪除全部購物車
@@ -161,7 +161,7 @@ const app = Vue.createApp({
                     this.getCart();
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
         },
         // 刪除單一產品
@@ -175,7 +175,7 @@ const app = Vue.createApp({
                     this.loadingItem = '';
                 })
                 .catch(err => {
-                    console.log(err.data);
+                    alert(err.data.message);
                 })
         },
         // 送出訂單
@@ -189,7 +189,7 @@ const app = Vue.createApp({
                 this.getCart();
             })
             .catch(err=>{
-                console.log(err.data.message);
+                alert(err.data.message);
             })
         }
     },
