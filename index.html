@@ -70,13 +70,14 @@
                     <button class="btn btn-outline-danger" type="button" :disabled="cart.carts.length === 0"
                         @click="removeAll">清空購物車</button>
                 </div>
-                <table class="table align-middle">
+                <table class="table align-middle" v-if="cart.carts.length !== 0">
                     <thead>
                         <tr>
                             <th></th>
                             <th>品名</th>
                             <th style="width: 150px">數量/單位</th>
-                            <th class="text-end">單價</th>
+                            <th>單價</th>
+                            <th class="text-end">總價</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,17 +108,20 @@
                                         </div>
                                     </div>
                                 </td>
+                                <td>
+                                    {{ item.product.price }}
+                                </td>
                                 <td class="text-end">
                                     <!-- <small class="text-success">折扣價：</small> -->
-                                    {{ item.product.price }}
+                                    {{ item.product.price * item.qty }}
                                 </td>
                             </tr>
                         </template>
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colspan="3" class="text-end">總計</td>
-                            <td class="text-end">{{ cart.total }}</td>
+                            <td colspan="4" class="text-end fw-bold">總計</td>
+                            <td class="text-end fw-bold fs-3">{{ cart.total }}</td>
                         </tr>
                         <!-- <tr>
                             <td colspan="3" class="text-end text-success">折扣價</td>
@@ -125,6 +129,9 @@
                         </tr> -->
                     </tfoot>
                 </table>
+                <h4 class="text-center my-5" v-else>
+                    購物車目前沒有商品
+                </h4>
             </div>
             <div class="my-5 row justify-content-center">
                 <v-form ref="form" class="col-md-6" v-slot="{ errors }" @submit="createOrder">
